@@ -4,7 +4,7 @@ require(__DIR__.'/lib_session.php');
 header('Content-type: application/json');
 
 
-if(count($_DELETE)> 0)
+if(count($_POST)> 0)
 {
    
 
@@ -17,6 +17,6 @@ if(count($_DELETE)> 0)
 	$stmt = $pdo->prepare('DELETE FROM items WHERE itemID=?');
 	$stmt->execute([$_GET['itemID']]);
 	// die(json_encode(['status'=>1,'message'=>'The post has been deleted']));
-	header('location:private.html');
+
 }
 ?>

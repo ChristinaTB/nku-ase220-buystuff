@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,7 +12,6 @@
   </head>
   <body>
 
-    
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html" >BuyStuff</a>
@@ -42,18 +40,14 @@
       </nav>
 
 
-    <h1 class = "text-center">Welcome  <span id = "userName" ></span></h1>
-	<!-- <a href="API/private.php?action=signout">Sign out</a> -->
+    <h1 class = "text-center">Welcome :)</h1>
 
-<div class = "container text-center">
-  <p>Shows post that you create, go to <a href = "private.html" >index</a> to show all postings. </p>
-</div>
-
-
-<div class = "container">
-    <div class = "row d-flex justify-content-around" id = "items"></div>
-
-</div>
+    <div class = "container text-center">
+      <p>Shows post that you can edit, go to <a href = "index.html" >index</a> to show all postings. </p>
+    </div>
+    <div class = "container">
+        <div class = "row d-flex justify-content-around" id = "items"></div>
+     </div>
 
 
 
@@ -72,41 +66,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
 
+    <script>  
 
-
-
-    <script>
-
-    
-
-          //  var jsonstr2 = $.getJSON('API/private.php', function(data)
-          //  {
-               
-          
-
-               $.getJSON('API/private.php',function(data){
-				for(i=0;i<data.length;i++)
-                {
-               
-     
- 
-                      
-                       $('#items').append('<div class = "col"><div class = "card" style="width: 20rem;"><img src="'+data[i].item_picture+ '"class = "card-img-top" style  ="height: 320px;"><div class = "card-body"><h5>'+data[i].item_name+'</h5></div><ul class = "list-group list-group-flush"><li class = "list-group-item">Price: $' +data[i].item_price+ '</li><div class = "card-body"><div><h3><li class = "list-group-item"><a href = "item_edit.html?itemID='+ data[i].ID +'">' + "Edit Item" + '<li class = "list-group-item"><a href = "item_delete.html?itemID=' + data[i].ID+'">'+ "Delete Item" +'</li></div></div></div>');
-                   
-                        
-   $('#userName').text(data[i].firstname);
+   $.getJSON('API/private.php',function(data){
+			for(i=0;i<data.length;i++)
+          { $('#items').append('<div class = "col"><div class = "card" style="width: 20rem;"><img src="'+data[i].item_picture+ '"class = "card-img-top" style  ="height: 320px;"><div class = "card-body"><h5>'+data[i].item_name+'</h5></div><ul class = "list-group list-group-flush"><li class = "list-group-item">Price: $' +data[i].item_price+ '</li><div class = "card-body"><div><h3><li class = "list-group-item"><a href = "item_edit.html?itemID='+ data[i].ID +'">' + "Edit Item" + '<li class = "list-group-item"><a href = "item_delete.html?itemID=' + data[i].ID+'">'+ "Delete Item" +'</li></div></div></div>');
                     
-           
-
-              
-                  
-                } 
-                
-                
-              
-            
+           $('#userName').text(data[i].firstname);
+           }     
 			});
-          //  })
 
     </script>
   </body>

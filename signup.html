@@ -110,29 +110,22 @@
                     url:'API/auth.php',
                     data: data,
                     success: function(output, status, xhr,data) { 
-                      
-                      console.log(output);
-   
-         
- 
-                        if(output == 1){
-							$('form#signup .alert').removeClass('alert-danger').addClass('alert-success').removeClass('d-none');
-							$('form#signup .alert').text(output.message);
-							window.location='private.html';
-						}else{
-							$('form#signup .alert').addClass('alert-danger').removeClass('d-none');
-							$('form#signup .alert').text(output.message);
-						}
-         
+console.log(output)
+                        if(output == 1 ){
+                            $('form#signup .alert').removeClass('alert-danger').addClass('alert-success').removeClass('d-none');
+                            $('form#signup .alert').text(
+                              "Welcome to the website"
+                            );
+                            window.location='private.html';
+                          }else{
+                            $('form#signup .alert').addClass('alert-danger').removeClass('d-none');
+                            $('form#signup .alert').text("Error: Already a user with email, please sign in");
+                          }
                     }
-
-                  
+     
                 });
             });
 
-        
         </script>
-
-
     </body>
 </html>
