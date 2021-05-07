@@ -35,6 +35,17 @@ $opt = [
 $pdo= new PDO($dsn, $user, $pass, $opt);
 
 
+$pdo ->query(
+    "CREATE TABLE items (
+        ID int(11) NOT NULL,
+        item_name varchar(96) CHARACTER SET utf16 NOT NULL,
+        item_price int(11) NOT NULL,
+        item_detail varchar(144) NOT NULL,
+        item_picture varchar(150) NOT NULL,
+        user_ID int(11) NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+      );
+    
 
 
 ?>
