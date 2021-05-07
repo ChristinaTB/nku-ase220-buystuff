@@ -1,0 +1,83 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<form id="edit" method="POST">
+			<label>Title</title><br />
+                <label>Item Name</title><br />
+                    <input type ="hidden" name = "ID" value = "" />
+                    <input type="text" name="item_name"  value= ""/><br /><br />
+                    
+                    <label>item_price</title><br />
+                    <input type ="number" name="item_price" value= "" /><br /><br />
+                    
+                    <label>item_detail</title><br />
+                    <textarea name="item_detail" value= ""></textarea> <br /><br />
+                        
+                    
+                    <label>item_picture</title><br />
+                    <input type="url" name="item_picture" value= "" /><br /><br />
+
+                    
+                    <input type="number" name="user_ID" value= "" /><br /><br />
+			
+			<button type="submit">Edit post</button>
+		</form>
+		<script src="assets/jquery-3.5.1.min.js"></script>
+		<script src="assets/app.js"></script>
+		<script>
+
+
+			$.getJSON('API/item_detail.php?itemID='+findGetParameter('itemID'),function(data){
+				// if(data.title==null) window.location.href='index.html';
+				$('#edit input[name=item_name]').val(data.item_name);
+				$('#edit input[name=item_price]').val(data.item_price);
+				$('#edit input[name=user_ID]').val(data.user_ID);
+				$('#edit input[name=item_picture]').val(data.item_picture);
+				$('#edit textarea[name=item_detail]').val(data.item_detail);
+                
+				
+			});
+
+
+            // console.log(jsontrs);
+			$(document).on('submit','#edit',function(e){
+				//tell the browser to ignore the default event handler
+				e.preventDefault();
+				
+				var data={
+					itemID:findGetParameter('itemID'),
+					item_name:$('form#edit input[name=item_name]').val(),
+					user_ID:$('form#edit input[name=user_ID]').val(),
+					item_detail:$('form#edit textarea[name=item_detail]').val(),
+					item_price:$('form#edit input[name=item_price]').val(),
+					item_picture:$('form#edit input[name=item_picture]').val(),
+                   
+				};
+				console.log(data);
+				$.ajax({
+					type:'PUT',
+					// url:'API/item_detail.php?itemID='+findGetParameter('itemID'),
+                    url:'API/items.php',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    // dataType: 'application/json',
+					// data: data,
+                    
+					success: function(output, status, xhr, data) { 
+                        console.log(status),
+                        console.log(output.status),
+                        console.log(data),
+                        console.log(xhr)
+
+						if(output.status==1){
+							console.log('request is successful');
+						}else{
+							
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
