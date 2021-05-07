@@ -3,14 +3,8 @@ require(__DIR__.'/lib_db.php');
 require(__DIR__.'/lib_session.php');
 
 
-$stmt2 = $pdo->query('CREATE TABLE items (
-    ID int(11) NOT NULL,
-    item_name varchar(96) CHARACTER SET utf16 NOT NULL,
-    item_price int(11) NOT NULL,
-    item_detail varchar(144) NOT NULL,
-    item_picture varchar(150) NOT NULL,
-    user_ID int(11) NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8)');
+$stmt2 = $pdo->query("ALTER TABLE `items`
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;'");
 
 $stmt2->execute([]);
 var_dump($stmt2);
@@ -29,10 +23,3 @@ die( json_encode($stmt->fetchAll()));
 ?>
 
 
-<html>
-    <head>
-</head>
-<body>
-    here
-</body>
-</html>
