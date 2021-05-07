@@ -36,8 +36,9 @@ $pdo= new PDO($dsn, $user, $pass, $opt);
 
 
 $pdo ->query("
-    ALTER TABLE items
-    ADD PRIMARY KEY (`ID`);
+ALTER TABLE items
+MODIFY ID int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
       ");
     
 
