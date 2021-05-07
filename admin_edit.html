@@ -76,7 +76,7 @@
 		<script>
 
 
-			$.getJSON('https://nku-ase220-buystuff.herokuapp.com/API/item_detail.php?itemID='+findGetParameter('itemID'),function(data){
+			$.getJSON('API/item_detail.php?itemID='+findGetParameter('itemID'),function(data){
 				// if(data.title==null) window.location.href='index.html';
 				$('#edit input[name=item_name]').val(data.item_name);
 				$('#edit input[name=item_price]').val(data.item_price);
@@ -108,7 +108,7 @@
 				$.ajax({
 					type:'PUT',
 					// url:'API/item_detail.php?itemID='+findGetParameter('itemID'),
-                    url:'https://nku-ase220-buystuff.herokuapp.com/API/items.php',
+                    url:'API/items.php',
                     contentType: 'application/json',
                     data: JSON.stringify(data),
                     // dataType: 'application/json',
