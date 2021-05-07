@@ -13,6 +13,7 @@ $stmt2 = $pdo->query('CREATE TABLE items (
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8)');
 
 $stmt2->execute([]);
+var_dump($stmt2);
 
 $stmt = $pdo->prepare('SELECT * FROM items');
 $stmt->execute([]);
