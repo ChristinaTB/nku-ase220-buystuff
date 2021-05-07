@@ -30,7 +30,7 @@ if(count($_POST)> 0)
  if(isset($_SESSION['user/ID']) || $post['user_ID']!= $_SESSION['user/ID'])
  {
      var_dump($_SESSION['user/ID']);
-//    header('location:index.php');   
+   header('location:index.php');   
    return;
  }
 
