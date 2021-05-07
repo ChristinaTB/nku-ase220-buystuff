@@ -4,7 +4,7 @@ require(__DIR__.'/lib_session.php');
 header('Content-type: application/json');
 
 
-switch($_POST['action']){
+switch($_SERVER['REQUEST_METHOD']){
 	case 'GET':
 		if(isset($_GET['itemID'])) detail($pdo);
 		else index($pdo);
