@@ -93,7 +93,7 @@
 
 
         <script>
-               $.getJSON('API/index.php',function(data){
+               $.getJSON('https://nku-ase220-buystuff.herokuapp.com/API/index.php',function(data){
 				for(i=0;i<data.length;i++ )
                 {
                     $('#items').append('<div class = "col"><div class = "card" style="width: 20rem;"><img src="'+data[i].item_picture+ '"class = "card-img-top" style  ="height: 320px;"><div class = "card-body"><h5>'+data[i].item_name+'</h5></div><ul class = "list-group list-group-flush"><li class = "list-group-item">Price: $' +data[i].item_price+ '</li><div class = "card-body"><div><h3><a href="item_detail.html?itemID='+ data[i].ID +'">' + "Buy item"+ '</li><li class = "list-group-item"><a href = "item_edit.html?itemID='+ data[i].ID +'">' + "Edit Item" + '<li class = "list-group-item"><a href = "item_delete.html?itemID=' + data[i].ID+'">'+ "Delete Item" +'</li></div></div></div>');
