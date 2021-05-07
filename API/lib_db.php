@@ -18,7 +18,7 @@
 
 
 
-$host = '@us-cdbr-east-03.cleardb.com';
+$host = 'us-cdbr-east-03.cleardb.com';
 $db= 'heroku_a89114b2c9653f0';
 $user = 'b86f3046bbfa63';
 $pass = '6b3e5433';
